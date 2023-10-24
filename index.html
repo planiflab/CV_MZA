@@ -839,7 +839,7 @@
 
 			/* CREACIÓN DEL MAPA CON BASE LAYERS Y OVERLAYS */
 			var map = L.map('map', {
-				layers: [mapa_bing ,Cinturonverde]
+				layers: [mapa_bing ]
 			}).setView([-32.8573, -68.6159], 10);
 			var marker = L.marker(map.getCenter(),{icon:iconoRojo}).bindPopup('Marcador de Street View').addTo(map);
             map.on('move', function() { marker.setLatLng(map.getCenter()); });
@@ -888,7 +888,9 @@
 				"Marcador":marker,
 				
 				},
-				"Riesgo": {
+				"Cinturón Verde":{"Límite":Cinturonverde,
+				},
+				/*"Riesgo": {
 				"Amenaza de Inundacion":inundacion,
 				"Canales Colectores Hijuelas":CanalesColectoresHijuelas,
 				"Cuencas Hidrográficas":cuencas,
@@ -898,88 +900,10 @@
 				"Suelo":suelo,
 				
 				},
-				"Marco Normativo":{
-				"Distritos":Depa,
-				"Limite Urbano":limiurb,
-				"Línea Municipal y de Edificación (Capa en construcción) ":lineasmun,
-				"Zona con Características Especiales de Urbanización":zonaurb,
-				"Zona Especial de Conservacion Natural":zonatu,
-				"Zonificación":zonificacion,
-				"Zona Ley Piedemonte 4886" :zonaley,
-				
-				},
-				"Infraestructura Ambiental": {
-				    "Paneles Solares": paneles,
-				    "Planta de Clasificación de Residuos":recic,
-					"Puntos de Recepción de Pilas":puntospilas,	
-					"Puntos Verdes":punt,
-					"Solmáforos":solma,
-				
-				},
 				"Gobernanza Ambiental": {
 					"Información Ambiental": infoambiente,
 				
-                },
-				"Movilidad": {
-					"Ciclovías Existentes":cicloviasexist,
-					"Ciclovías Proyectadas":cicloviasproy,
-				
-                },
-				"Muvi GC": {
-				"Barrios Historicos":barrios,
-				"Edificios":edificios,
-				"Sitios y Conjuntos Edilicios":SyCE,
-				"Tramos y Carriles":TyC,
-				
-				},
-				"Educacion":{
-				"Establecimientos Educativos":escuelas,
-				"Jardines Municipales":jardinesmuni,
-				
-				},
-				"Infraestructura Urbana":{
-				"Bancos":bank,
-				"Barrios Consolidados":BarriosConsolidados,
-				"Barrios Populares":barriospopulares,
-				"Cajeros":caja,
-				"Dependencias Municipales":depen,
-				"Espacios Verdes":espverdes,
-				"Estaciones Meteorológicas":meteo,
-				"Instituciones de Seguridad":seguridad,
-				"Mastiles vía Pública" :mastil,
-				"Pago Facil - Rapipago":cobro,
-				"Polideportivos":polideportivos,
-				"Puntos de Wifi":puntoswifi,
-				"Residencias de Adultos Mayores":residenciasad,
-				
-				
-				},
-				"Infraestructura de Salud": {
-					"Centros de Salud":centrosdesalud,
-					"Clínicas Privadas":clinicaspriv,
-					"Farmacias":farmacias,
-					"Hospitales":hospital,
-					
-				},
-				"Infraestructura de Servicio": {                 
-					"Estaciones de Servicio":estacion,
-					"Lineas de Distribución de Energía":lineasd,
-					"Lineas de Transporte de Energía":lineast,
-					"Red Colectora Cloacal":sistcloacal,
-					"Red Distribuidora de Agua Potable":redesagua,
-				
-				},
-				"Patrimonio": {
-				"Esculturas":escultura,
-				"Persianas Comerciales": persianas,
-                
-								
-				},
-                "Turismo": {
-				"Bodegas": bode,
-				"Informador Turistico": informador,
-				"Puestos Programa en la Bici": bicicleta,
-				},
+                },*/
 				
 			};
 
@@ -992,7 +916,8 @@
 			map.on('overlayadd', onOverlayAdd);
 		    map.on('overlayremove', onOverlayRemove);
 			L.control.scale().addTo(map);
-			//L.control.polylineMeasure().addTo(map);
+			//
+			L.control.polylineMeasure().addTo(map);
 			L.streetView({ position: 'topleft'}).addTo(map);
 			//L.streetView1({ position: 'topleft'}).addTo(map);
 			L.easyPrint({filename: 'myMap',exportOnly: true,hideControlContainer: true, sizeModes: ['Current', 'A4Landscape', 'A4Portrait']}).addTo(map);
